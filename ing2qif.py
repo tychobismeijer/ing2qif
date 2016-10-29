@@ -82,7 +82,8 @@ class QifEntry(object):
     def _memo_geldautomaat(self, mededelingen, omschrijving):
         if omschrijving.startswith('ING>') or \
                 omschrijving.startswith('ING BANK>') or \
-                omschrijving.startswith('OPL. CHIPKNIP'):
+                omschrijving.startswith('OPL. CHIPKNIP') or \
+                mededelingen.startswith('Pasvolgnr:'):
             memo = omschrijving
         else:
             memo = mededelingen[:32]
